@@ -1,0 +1,139 @@
+datepicker * {
+    box-sizing: border-box;
+}
+
+datepicker {
+    max-width: 420px;
+    width: 100%;
+    display: inline-block;
+    position: relative;
+}
+
+.datepicker-container {
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
+    padding: 10px 0;
+    width: 100%;
+    display: none;
+    background-color: #fff;
+    position: absolute;
+    z-index: 99;
+    max-width: 350px;
+}
+
+.dp-month {
+    display: flex;
+    flex-direction: column;
+}
+
+.dp-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    align-items: center;
+    padding: 0 2px;
+
+}
+
+.dp-weekdays > span {
+    text-align: center;
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px 0;
+}
+
+.dp-days-of-month {
+    width: 100%;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 2px;
+}
+
+.dp-days-of-month > span {
+    text-align: center;
+    display: inline-block;
+    border: 2px solid #fff;
+}
+
+.dp-days-of-month > span:hover {
+    cursor: pointer;
+    border: 2px solid #DADADA;
+}
+
+.dp-days-of-month > span:not(:hover) {
+    border-bottom: 2px solid #fff;
+}
+
+
+.dp-days-of-month > span[next-month],
+.dp-days-of-month > span[previous-month] {
+    /*background-color: #F1F5FA;*/
+    opacity: 0.5;
+}
+
+.dp-days-of-month span[today] {
+    color: #ff5722;
+}
+
+.dp-days-of-month > span[selected] {
+    border: 2px solid #000;
+    border-radius: 50%;
+    display: block;
+    width: 30px;
+    aspect-ratio: 1;
+    margin: 0 auto;
+    padding: 1px 4px;
+}
+
+.dp-controller {
+    display: flex;
+    padding: 10px 20px;
+    justify-content: space-between;
+}
+
+.dp-controller > div {
+    flex-shrink: 1;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.dp-controller button {
+    padding: 7px 14px;
+    font-size: 20px;
+    border: none;
+    background: #e8e8e8;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+}
+
+.dp-controller-btn {
+    margin: 0 auto;
+}
+
+.dp-month-list,
+.dp-year-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+
+.dp-month-list > span:hover,
+.dp-year-list > span:hover {
+    background-color: #E8E8EA;
+    border-radius: 4px;
+}
+
+.dp-month-list > span,
+.dp-year-list > span {
+    margin: 10px;
+    padding: 10px 0;
+    text-align: center;
+}
