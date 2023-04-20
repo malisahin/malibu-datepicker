@@ -64,7 +64,7 @@ class DatePickerElement extends HTMLElement {
     readDateFromInput() {
 
         let datePickerInput = this.querySelector(".date-picker-input");
-        datePickerInput.value = EnDatePicker.formatDate(this);
+        datePickerInput.value = MalibuDatePicker.formatDate(this);
 
     }
 
@@ -74,7 +74,7 @@ class DatePickerElement extends HTMLElement {
         input.onfocus = () => {
             console.log("OnFocus");
             container.style.display = "block";
-            document.addEventListener("click", EnDatePicker.handleClickOutsideOfDatePicker);
+            document.addEventListener("click", MalibuDatePicker.handleClickOutsideOfDatePicker);
         }
     }
 
@@ -119,7 +119,7 @@ class DatePickerElement extends HTMLElement {
 
         datePicker.setAttribute("value", time)
         let datePickerInput = datePicker.querySelector(".date-picker-input");
-        datePickerInput.value = EnDatePicker.formatDate(datePicker);
+        datePickerInput.value = MalibuDatePicker.formatDate(datePicker);
         container.style.display = "none";
     }
 
@@ -345,7 +345,7 @@ class DatePickerElement extends HTMLElement {
 
 }
 
-class EnDatePicker {
+class MalibuDatePicker {
     static formatDate(datePicker) {
         let date = datePicker.getValue();
         if (!date) return '';
@@ -387,10 +387,10 @@ class EnDatePicker {
             containerList.forEach(container => {
                 container.style.display = "none";
             });
-            document.removeEventListener("click", EnDatePicker.handleClickOutsideOfDatePicker);
+            document.removeEventListener("click", MalibuDatePicker.handleClickOutsideOfDatePicker);
         }
 
-        // document.removeEventListener("click", EnDatePicker.handleClickOutsideOfDatePicker);
+        // document.removeEventListener("click", MalibuDatePicker.handleClickOutsideOfDatePicker);
 
     }
 
