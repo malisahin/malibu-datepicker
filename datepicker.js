@@ -10,6 +10,10 @@ class DatePickerElement extends HTMLElement {
 
     populatedDate;
 
+    tempDay;
+    tempMonth;
+    tempYear;
+
     constructor() {
 
         super();
@@ -104,16 +108,16 @@ class DatePickerElement extends HTMLElement {
     }
 
     selectDate(e) {
-        let clicked = e.target;
-        let datePicker = clicked.closest('datepicker')
-        let time = new Date(Number(clicked.getAttribute("time")));
+        let selected = e.target;
+        let datePicker = selected.closest('malibu-datepicker')
+        let time = new Date(Number(selected.getAttribute("time")));
         let container = datePicker.querySelector(".datepicker-container");
 
         console.log("Day selected: " + e);
         document.querySelectorAll('[selected]').forEach(b => b.removeAttribute('selected'));
-        clicked.setAttribute("selected", "");
+        selected.setAttribute("selected", "");
         this.selectedDate = time;
-        if (Number(clicked.getAttribute("value") !== time.getTime())) {
+        if (Number(selected.getAttribute("value") !== time.getTime())) {
             datePicker.onValueChange(time);
         }
 
@@ -370,8 +374,7 @@ class MalibuDatePicker {
     }
 
     static handleClickOutsideOfDatePicker(e) {
-        let datepicker = e.target.closest('datepicker');
-        debugger;
+        let datepicker = e.target.closest('malibu-datepicker');
         console.log("handleClickOutsideOfDatePicker is run.")
 
         let containerList = document.querySelectorAll(".datepicker-container");
@@ -389,8 +392,6 @@ class MalibuDatePicker {
             });
             document.removeEventListener("click", MalibuDatePicker.handleClickOutsideOfDatePicker);
         }
-
-        // document.removeEventListener("click", MalibuDatePicker.handleClickOutsideOfDatePicker);
 
     }
 
